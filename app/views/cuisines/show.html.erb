@@ -1,12 +1,6 @@
-<h1>CookBook</h1>
-<p>Bem-vindo ao maior livro de receitas online</p>
+<h1><%= @cuisine.name %></h1>
 
-<% @cuisines.each do |cuisine| %>
-  <ul>
-    <li><%= link_to cuisine.name, cuisine %></li>
-  </ul>
-<% end %>
-
+<% unless @recipes.empty? then %>
 <% @recipes.each do |recipe| %>
   <h1><%= link_to recipe.title, recipe %></h1>
   <ul>
@@ -16,5 +10,8 @@
     <li><%= "#{recipe.cook_time} minutos" %></li>
   </ul>
 <% end %>
+<% else %>
+  <p>Nenhuma receita encontrada para este tipo de cozinha</p>
+<% end %>
 
-<%= link_to 'Enviar uma receita', new_recipe_path %>
+<%= link_to 'Voltar', root_path %>
