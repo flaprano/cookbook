@@ -1,13 +1,20 @@
 class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
+    @recipe_types = RecipeType.all
     @cuisines = Cuisine.all
   end
 
   def create
     @recipe = Recipe.create(recipe_params)
-    #redirect_to recipe_url(@recipe.id)
-    redirect_to @recipe
+    if @recipe.valid?
+      redirect_to @recipe
+    else
+      @recipe_types = RecipeType.all
+      @cuisines = Cuisine.all
+      flash[:error] = 'Você deve informar todos os dados da receita'
+      render :new
+    end
   end
 
   def show
@@ -15,6 +22,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-      params.require(:recipe).permit(:title, :recipe_type, :cuisine_id, :difficulty, :cook_time, :ingredients, :method)
+      params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id, :difficulty, :cook_time, :ingredients, :method)
   end
 end
