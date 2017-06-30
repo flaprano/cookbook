@@ -1,7 +1,3 @@
-<%= flash[:error] %>
-<%= form_for @recipe_type do |f| %>
-  <%= f.label :name, 'Nome' %>
-  <%= f.text_field :name %>
+<h1>Cadastrar Tipo de Receita</h1>
 
-  <%= f.submit 'Enviar' %>
-<% end %>
+<%= render 'form' %>
