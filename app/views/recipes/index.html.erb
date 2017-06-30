@@ -1,17 +1,17 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
-<% @recipe_types.each do |recipe_type| %>
-  <ul>
+<ul>
+  <% @recipe_types.each do |recipe_type| %>
     <li><%= link_to recipe_type.name, recipe_type %></li>
-  </ul>
 <% end %>
+</ul>
 
+<ul>
 <% @cuisines.each do |cuisine| %>
-  <ul>
     <li><%= link_to cuisine.name, cuisine %></li>
-  </ul>
 <% end %>
+</ul>
 
 <% @recipes.each do |recipe| %>
   <%= render recipe %>
