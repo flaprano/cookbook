@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_collections, only: [:index, :new, :edit]
+  before_action :set_collections#, only: [:index, :new, :edit]
   before_action :find_recipe, only: [:show, :edit, :update]
 
   def index
@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.where("title like ?", params[:search])
+    @recipes = Recipe.where("title like ?", "%#{params[:search]}%")
   end
 
   private

@@ -21,7 +21,7 @@ feature 'Visitor search for recipes' do
 
     # simula a ação do usuário
     visit root_path
-    fill_in 'Busca', with: 'Bolo de cenoura'
+    fill_in 'search', with: 'Bolo de cenoura'
     click_on 'Buscar'
 
     # expectativas do usuário após a ação
@@ -47,7 +47,7 @@ feature 'Visitor search for recipes' do
 
     # simula a ação do usuário
     visit root_path
-    fill_in 'Busca', with: 'Bolo de cenoura'
+    fill_in 'search', with: 'Bolo de cenoura'
     click_on 'Buscar'
     click_on 'Bolo de cenoura'
 
