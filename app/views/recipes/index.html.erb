@@ -1,22 +1,8 @@
 <h1>CookBook</h1>
 <p>Bem-vindo ao maior livro de receitas online</p>
 
-<ul>
-  <% @recipe_types.each do |recipe_type| %>
-    <li><%= link_to recipe_type.name, recipe_type %></li>
-<% end %>
-</ul>
-
-<ul>
-<% @cuisines.each do |cuisine| %>
-    <li><%= link_to cuisine.name, cuisine %></li>
-<% end %>
-</ul>
-
 <% @recipes.each do |recipe| %>
   <%= render recipe %>
 <% end %>
 
 <%= link_to 'Voltar', root_path %>
-
-<%= link_to 'Enviar uma receita', new_recipe_path %>
