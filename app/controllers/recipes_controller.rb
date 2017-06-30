@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_collections, only: [:index, :new, :edit]
+  before_action :set_collections, only: [:index, :new, :edit, :search]
   before_action :find_recipe, only: [:show, :edit, :update]
 
   def index
@@ -36,6 +36,10 @@ class RecipesController < ApplicationController
       flash.now[:error] = 'Você deve informar todos os dados da receita'
       render :edit
     end
+  end
+
+  def search
+    @recipes = Recipe.where("title like ?", params[:search])
   end
 
   private

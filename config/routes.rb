@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :cuisines, only: [:show, :new, :create]
   resources :recipe_types, only: [:show, :new, :create]
-  resources :recipes, only: [:index, :show, :new, :create, :edit, :patch, :update]
+  resources :recipes, only: [:index, :show, :new, :create, :edit, :patch, :update] do
+    get 'search', on: :collection
+  end
 end
