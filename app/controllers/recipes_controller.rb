@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
-  before_action :set_collections, only: [:new, :edit]
+  before_action :set_collections, only: [:index, :new, :edit]
   before_action :find_recipe, only: [:show, :edit, :update]
+
+  def index
+    @recipes = Recipe.all
+  end
 
   def show
   end
