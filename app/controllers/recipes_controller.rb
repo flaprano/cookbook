@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-  before_action :set_collections#, only: [:index, :new, :edit]
   before_action :find_recipe, only: [:show, :edit, :update]
 
   def index
@@ -45,11 +44,6 @@ class RecipesController < ApplicationController
   private
   def recipe_params
       params.require(:recipe).permit(:title, :recipe_type_id, :cuisine_id, :difficulty, :cook_time, :ingredients, :method)
-  end
-
-  def set_collections
-    @cuisines = Cuisine.all
-    @recipe_types = RecipeType.all
   end
 
   def find_recipe

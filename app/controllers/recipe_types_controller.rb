@@ -1,5 +1,4 @@
 class RecipeTypesController < ApplicationController
-  before_action :set_collections
   before_action :find_recipe_type, only: [:show, :edit, :update]
 
   def show
@@ -42,8 +41,4 @@ class RecipeTypesController < ApplicationController
     @recipe_type = RecipeType.find params[:id]
   end
   
-  def set_collections
-    @cuisines = Cuisine.all
-    @recipe_types = RecipeType.all
-  end
 end

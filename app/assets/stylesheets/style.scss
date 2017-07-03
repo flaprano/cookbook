@@ -1,0 +1,25 @@
+.icones-redes-sociais {
+    
+    li {
+	    display: inline-block;
+    }
+    
+    a {
+        width: 40px;
+        height: 40px;
+        display: block;
+        text-indent: -99999px;
+    }
+}
+
+.twitter {
+    background-image: url(twitter.png);
+}
+
+.facebook {
+    background-image: url(facebook.png);
+}
+
+.instagram {
+    background-image: url(instagram.png);
+}
